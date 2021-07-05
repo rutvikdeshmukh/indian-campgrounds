@@ -1,0 +1,93 @@
+<% layout('layouts/boiler_plate.ejs') -%>
+<div class="row">
+  <h2 class="text-center">New Campground</h2>
+  <div class="col-6 offset-1">
+    <form
+      action="/camp_ground/create"
+      method="post"
+      novalidate
+      class="form-validation"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label class="form-label" for="title">Title</label>
+        <input
+          class="form-control"
+          type="text"
+          id="campground[title]"
+          name="campground[title]"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Please enter the correct Title</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="location">Location</label>
+        <input
+          class="form-control"
+          type="text"
+          id="location"
+          name="campground[location]"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Please enter correct Location</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="price">Campground Price</label>
+        <div class="input-group">
+          <span class="input-group-text" id="price-label">₹</span>
+          <input
+            type="text"
+            class="form-control"
+            id="price"
+            placeholder="0.00"
+            aria-label="price"
+            aria-describedby="price-label"
+            name="campground[price]"
+            required
+          />
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Please choose price</div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="description">Description</label>
+        <textarea
+          class="form-control"
+          type="text"
+          id="description"
+          name="campground[description]"
+          required
+        ></textarea>
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Please choose description</div>
+      </div>
+
+      <%if(currentUser) { %>
+
+      <div class="mb-3">
+        <div class="custom-file">
+          <input
+            type="file"
+            class="custom-file-input"
+            id="images"
+            aria-describedby="inputGroupFileAddon01"
+            name="images"
+            multiple
+            required
+          />
+          <label class="custom-file-label" for="images">Choose Image's</label>
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Please Upload the Image</div>
+        </div>
+      </div>
+      <%}%>
+      <div class="mb-3">
+        <button class="btn btn-success">Add Campground</button>
+      </div>
+    </form>
+    <a href="/camp_ground"> All Campgrounds</a>
+  </div>
+</div>

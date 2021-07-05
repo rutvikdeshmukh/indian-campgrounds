@@ -1,0 +1,118 @@
+<% layout('layouts/boiler_plate.ejs') -%>
+<div class="row">
+  <div class="col-6 offset-3">
+    <form
+      action="/camp_ground/<%= data_record._id%>/update?_method=patch"
+      method="post" novalidate class="form-validation"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label class="form-label" for="title">Title</label>
+        <input
+          type="text"
+          name="campground[title]"
+          ,
+          id="title"
+          ,
+          class="form-control"
+          ,
+          value="<%= data_record.title%>"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Please enter the correct Title</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="location">Location</label>
+        <input
+          type="text"
+          name="campground[location]"
+          id="location"
+          ,
+          class="form-control"
+          ,
+          value="<%= data_record.location%>"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Please enter the correct location</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="price">Campground Price</label>
+        <div class="input-group">
+          <span class="input-group-text" id="price-label">₹</span>
+          <input
+            type="text"
+            class="form-control"
+            id="price"
+            placeholder="0.00"
+            aria-label="price"
+            aria-describedby="price-label"
+            name="campground[price]"
+            value="<%=data_record.price%>"
+            required
+          />
+          <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Please enter the correct price</div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="description">Description</label>
+        <textarea
+          class="form-control"
+          type="text"
+          id="description"
+          name="campground[description]"
+          required
+        ><%= data_record.description%></textarea
+        >
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Please enter the correct description</div>
+        
+      </div>
+
+      <div class="mb-3">
+        <div class="custom-file">
+          <input
+            type="file"
+            class="custom-file-input"
+            id="images"
+            aria-describedby="inputGroupFileAddon01"
+            name="images"
+            multiple
+          />
+          <label class="custom-file-label" for="images">Choose Image's</label>
+        </div>
+      </div>
+      <div class="mb-3">
+        <%data_record.images.forEach((image,i)=>{%>
+        <div class="mb-3">
+          <img src="<%=image.thumbnail%>" class="img-thumbnail" alt="" />
+        </div>
+        <div class="form-check-inline">
+          <input
+            type="checkbox"
+            id="image-<%=i%>"
+            name="deleteImages[]"
+            value="<%=image.filename%>"
+          />
+        </div>
+        <label for="image-<%=i%>"> delete?</label>
+        <%})%>
+      </div>
+
+
+
+      <div class="mb-3">
+        <button class="btn btn-info">Update Campground</button>
+      </div>
+    </form>
+
+      <a href="/camp_ground/<%=data_record._id%>">
+        Back To Campground</a
+      >
+    </div>
+  </div>
+</div>
+

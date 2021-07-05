@@ -1,0 +1,47 @@
+<% layout('layouts/boiler_plate.ejs') -%>
+<div class="row">
+  <h1 class="text-center">Registration</h1>
+  <div class="col-6 offset-1">
+    <form action="/register" method="post" novalidate class="form-validation">
+      <div class="mb-3">
+        <label class="form-label" for="username">Username</label>
+        <input
+          class="form-control"
+          type="text"
+          id="username"
+          name="username"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Please enter the correct username</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="email">email</label>
+        <input
+          class="form-control"
+          type="text"
+          id="email"
+          name="email"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Please enter correct email</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="password">Password</label>
+        <input
+          class="form-control"
+          type="text"
+          id="password"
+          name="password"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Please choose Image Url</div>
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-success">Create Account</button>
+      </div>
+    </form>
+  </div>
+</div>
