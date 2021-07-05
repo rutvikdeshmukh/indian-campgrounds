@@ -32,7 +32,7 @@
         <li class="list-group-item">
           Submitted by <%= find_record.author.username%>
         </li>
-        <li class="list-group-item">₹<%= find_record.price%>/night</li>
+        <li class="list-group-item">₹<%= find_record.price%></li>
       </ul>
       <div class="card-body">
         <% if(currentUser &&currentUser.equals(find_record.author)||
