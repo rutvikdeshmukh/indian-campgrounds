@@ -34,9 +34,9 @@
         </li>
         <li class="list-group-item">₹<%= find_record.price%></li>
       </ul>
+      <% if(currentUser &&currentUser.equals(find_record.author)||
+      currentUser?.username==="admin401@") {%>
       <div class="card-body">
-        <% if(currentUser &&currentUser.equals(find_record.author)||
-        currentUser?.username==="admin401@") {%>
         <a
           class="card-link btn btn-info"
           href="/camp_ground/<%=find_record._id%>/edit"
@@ -49,8 +49,9 @@
         >
           <button class="btn btn-danger">Delete</button>
         </form>
-        <%}%>
+       
       </div>
+      <%}%>
     </div>
   </div>
   <div class="col-6">
